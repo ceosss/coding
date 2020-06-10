@@ -1,0 +1,10 @@
+SELECT
+    SUM(CI.POPULATION)
+FROM
+    CITY CI,
+    COUNTRY CO
+WHERE
+    (
+        CI.COUNTRYCODE = CO.CODE
+        AND CO.CONTINENT = 'Asia'
+    );
