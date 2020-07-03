@@ -4,21 +4,33 @@ using namespace std;
 
 int main()
 {
-    int n, a, b, c;
-    cin >> n >> a >> b >> c;
-    int ans = 1;
-    for (int i = 0; i <= 4000; i++)
+    ll n;
+    cin >> n;
+    ll bills = 0;
+    if (n >= 100)
     {
-        for (int j = 0; j <= 4000; j++)
-        {
-            int remain = n - a * i - b * j;
-            if (remain >= 0 && remain % c == 0)
-            {
-                int part3 = remain / c;
-                ans = max(ans, i + j + part3);
-            }
-        }
+        bills += n / 100;
+        n %= 100;
     }
-
-    cout << ans << endl;
+    if (n >= 20)
+    {
+        bills += n / 20;
+        n %= 20;
+    }
+    if (n >= 10)
+    {
+        bills += n / 10;
+        n %= 10;
+    }
+    if (n >= 5)
+    {
+        bills += n / 5;
+        n %= 5;
+    }
+    if (n >= 1)
+    {
+        bills += n;
+    }
+    cout << bills << endl;
+    return 0;
 }
