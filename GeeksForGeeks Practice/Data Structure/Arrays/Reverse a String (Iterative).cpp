@@ -3,16 +3,6 @@
 #define ll long long
 using namespace std;
 
-void reverseString(string s, int low, int high)
-{
-    if (low >= high)
-        return;
-    char t = s[low];
-    s[low] = s[high];
-    s[high] = t;
-    reverseString(s, low + 1, high - 1);
-}
-
 int main()
 {
     int t;
@@ -22,7 +12,12 @@ int main()
         string s;
         cin >> s;
         int n = s.length();
-        reverseString(s, 0, n - 1);
+        for (int i = 0; i < n / 2; i++)
+        {
+            char c = s[i];
+            s[i] = s[n - i - 1];
+            s[n - i - 1] = c;
+        }
         cout << s << endl;
     }
     return 0;
