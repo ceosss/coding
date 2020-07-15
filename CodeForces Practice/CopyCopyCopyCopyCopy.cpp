@@ -5,11 +5,11 @@ using namespace std;
 
 int main()
 {
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
-        int n, x;
+        ll n, x;
         cin >> n;
         set<int> a;
         for (int i = 0; i < n; i++)
