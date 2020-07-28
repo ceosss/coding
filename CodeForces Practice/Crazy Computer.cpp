@@ -17,9 +17,10 @@ int main()
     for (int i = 1; i < n; i++)
     {
 
-        if (abs(a[i] - a[i - 1]) > c)
-            count = 0;
-        count++;
+        if (abs(a[i] - a[i - 1]) <= c)
+            count++;
+        else
+            count = 1;
     }
     cout << count << endl;
     return 0;
