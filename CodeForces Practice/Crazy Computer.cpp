@@ -7,22 +7,17 @@ using namespace std;
 
 int main()
 {
-    int n, c, count = 0, x;
-    cin >> n >> c;
-    int a[n];
-    for (int i = 0; i < n; i++)
+    int n, c, a, b, w;
+    cin >> n >> c >> a;
+    n--;
+    w = 1;
+    while (n--)
     {
-        cin >> a[i];
+        b = a;
+        cin >> a;
+        (abs(b - a) <= c) ? w++ : w = 1;
     }
-    for (int i = 1; i < n; i++)
-    {
-
-        if (abs(a[i] - a[i - 1]) <= c)
-            count++;
-        else
-            count = 1;
-    }
-    cout << count << endl;
+    cout << w;
     return 0;
 }
 
