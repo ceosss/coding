@@ -14,7 +14,7 @@ int main()
         cout << 1 << endl;
         return 0;
     }
-    lli ans = 0;
+    ll ans = 0;
     int i;
     for (i = 1; i < n; i++)
         ans += 2 * i - 1;
