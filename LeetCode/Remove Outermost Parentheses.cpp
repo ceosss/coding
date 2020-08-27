@@ -4,28 +4,41 @@ public:
     string removeOuterParentheses(string s)
     {
 
-        int n = s.length();
-        string res = "";
-        stack<char> a;
-        for (int i = 0; i < n; i++)
+        string res;
+        int opened = 0;
+        for (char c : s)
         {
-            if (s[i] == '(')
+            if (c == '(' && opened++ > 0)
             {
-                a.push(s[i]);
+                res += c;
             }
-            else
+            if (c == ')' && opened-- > 1)
             {
-                if (s[i] == ')')
-                {
-                    if (a.size() != 1)
-                    {
-                        res += '(';
-                        res += ')';
-                    }
-                    a.pop();
-                }
+                res += c;
             }
         }
         return res;
     }
 };
+
+//
+//        .--------------.
+//        | Try First One|
+//        '--------------'
+//                |     .--------------.
+//                |     |              |
+//                V     V              |
+//              .--------------.       |
+//              |      AC.     |<---.  |
+//              '--------------'    |  |
+//              (True)|  |(False)   |  |
+//           .--------'  |          |  |
+//           |           V          |  |
+//           |  .--------------.    |  |
+//           |  |   Try Again  |----'  |
+//           |  '--------------'       |
+//           |                         |
+//           |  .--------------.       |
+//           '->| Try Next One |-------'
+//              '--------------'
+//
