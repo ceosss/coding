@@ -1,5 +1,5 @@
-/* Tree node structure  used in the program
-
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child  
 struct Node {
     int data;
     Node *left;
@@ -9,14 +9,22 @@ struct Node {
         data = val;
         left = right = NULL;
     }
-};*/
+}; */
 
-// return the Height of the given Binary Tree
-int height(Node *root)
+// Return a vector containing the inorder traversal of the tree
+void inorderFun(Node *root, vector<int> &res)
 {
-    if (!root)
-        return 0;
-    return max(height(root->left), height(root->right)) + 1;
+    if (root == NULL)
+        return;
+    inorderFun(root->left, res);
+    res.push_back(root->data);
+    inorderFun(root->right, res);
+}
+vector<int> inOrder(struct Node *root)
+{
+    vector<int> res;
+    inorderFun(root, res);
+    return res;
 }
 
 //
