@@ -1,29 +1,50 @@
 class Solution
 {
 public:
-    int balancedStringSplit(string s)
+    class Solution
     {
-        int cnt = 0;
-        int ans = 0;
-        for (int i = 0; i < s.size(); i++)
+    public:
+        // O(N)
+        int balancedStringSplit(string s)
         {
-            cnt = 0;
-            for (int j = i; j < s.size(); j++)
+            int counter = 0;
+            int result = 0;
+            for (int i = 0; i < s.length(); i++)
             {
-                if (s[j] == 'R')
-                    cnt++;
+                if (s[i] == 'R')
+                    counter++;
                 else
-                    cnt--;
-                if (j - i > 0 && cnt == 0)
-                {
-                    ans++;
-                    i = j;
-                    break;
-                }
+                    counter--;
+                if (counter == 0)
+                    result++;
             }
+            return result;
         }
-        return ans;
-    }
+    };
+    // O(N^@)
+    // int balancedStringSplit(string s)
+    // {
+    //     int cnt = 0;
+    //     int ans = 0;
+    //     for (int i = 0; i < s.size(); i++)
+    //     {
+    //         cnt = 0;
+    //         for (int j = i; j < s.size(); j++)
+    //         {
+    //             if (s[j] == 'R')
+    //                 cnt++;
+    //             else
+    //                 cnt--;
+    //             if (j - i > 0 && cnt == 0)
+    //             {
+    //                 ans++;
+    //                 i = j;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     return ans;
+    // }
 };
 
 //
