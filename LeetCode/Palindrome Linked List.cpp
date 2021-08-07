@@ -13,23 +13,40 @@ class Solution
 public:
     bool isPalindrome(ListNode *head)
     {
-        ListNode *temp = head;
-        stack<int> a;
-        while (temp)
+        vector<int> list;
+        ListNode *itr = head;
+        while (itr)
         {
-            a.push(temp->val);
-            temp = temp->next;
+            list.push_back(itr->val);
+            itr = itr->next;
         }
-        while (head != NULL)
+        int n = list.size();
+        for (int i = 0; i < n / 2; i++)
         {
-            int t = a.top();
-            a.pop();
-            if (t != head->val)
+            if (list[i] != list[n - i - 1])
                 return false;
-            head = head->next;
         }
         return true;
     }
+    // bool isPalindrome(ListNode *head)
+    // {
+    //     ListNode *temp = head;
+    //     stack<int> a;
+    //     while (temp)
+    //     {
+    //         a.push(temp->val);
+    //         temp = temp->next;
+    //     }
+    //     while (head != NULL)
+    //     {
+    //         int t = a.top();
+    //         a.pop();
+    //         if (t != head->val)
+    //             return false;
+    //         head = head->next;
+    //     }
+    //     return true;
+    // }
 };
 
 //
