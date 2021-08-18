@@ -1,20 +1,23 @@
 class Solution
 {
 public:
-    int m = INT_MIN;
-    void find(Node *root, int sum)
+    // pair<h,s>;
+    pair<int, int> find(Node *root)
     {
         if (!root)
-            return;
-        sum += root->data;
-        if (!root->left && !root->right)
-            m = max(m, sum);
-        find(root->left, sum);
-        find(root->right, sum);
+            return make_pair(0, 0);
+        pair<int, int> l = find(root->left);
+        pair<int, int> r = find(root->right);
+        if (l.first > r.first)
+            return make_pair(l.first + 1, l.second + root->data);
+        else if (r.first > l.first)
+            return make_pair(r.first + 1, r.second + root->data);
+        else
+            return make_pair(r.first + 1, max(l.second, r.second) + root->data);
     }
     int sumOfLongRootToLeafPath(Node *root)
     {
-        find(root, 0);
-        return m;
+        pair<int, int> res = find(root);
+        return res.second;
     }
 };
