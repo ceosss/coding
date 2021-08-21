@@ -1,42 +1,8 @@
-/* Tree node structure  used in the program
-
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};*/
-
-// return the Height of the given Binary Tree
-int height(Node *root)
+int height(struct Node *node)
 {
-    if (!root)
+    if (!node)
         return 0;
-    return max(height(root->left), height(root->right)) + 1;
+    int x = height(node->left);
+    int y = height(node->right);
+    return x > y ? x + 1 : y + 1;
 }
-
-//
-//        .--------------.
-//        | Try First One|
-//        '--------------'
-//                |     .--------------.
-//                |     |              |
-//                V     V              |
-//              .--------------.       |
-//              |      AC.     |<---.  |
-//              '--------------'    |  |
-//              (True)|  |(False)   |  |
-//           .--------'  |          |  |
-//           |           V          |  |
-//           |  .--------------.    |  |
-//           |  |   Try Again  |----'  |
-//           |  '--------------'       |
-//           |                         |
-//           |  .--------------.       |
-//           '->| Try Next One |-------'
-//              '--------------'
-//

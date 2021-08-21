@@ -1,50 +1,18 @@
-/* A binary tree node has data, pointer to left child
-   and a pointer to right child  
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-}; */
-
-// Return a vector containing the inorder traversal of the tree
-void inorderFun(Node *root, vector<int> &res)
+int arr[100000];
+int i = 0;
+// Function to return a list containing the inorder traversal of the tree.
+void traverse(struct Node *root)
 {
-    if (root == NULL)
+    if (!root)
         return;
-    inorderFun(root->left, res);
-    res.push_back(root->data);
-    inorderFun(root->right, res);
+    traverse(root->left);
+    arr[i++] = root->data;
+    traverse(root->right);
 }
-vector<int> inOrder(struct Node *root)
+int *inOrder(struct Node *root)
 {
-    vector<int> res;
-    inorderFun(root, res);
-    return res;
+    // code here
+    traverse(root);
+    return arr; // do not change the default values(i.e -1) in the unused array
+                // indices.
 }
-
-//
-//        .--------------.
-//        | Try First One|
-//        '--------------'
-//                |     .--------------.
-//                |     |              |
-//                V     V              |
-//              .--------------.       |
-//              |      AC.     |<---.  |
-//              '--------------'    |  |
-//              (True)|  |(False)   |  |
-//           .--------'  |          |  |
-//           |           V          |  |
-//           |  .--------------.    |  |
-//           |  |   Try Again  |----'  |
-//           |  '--------------'       |
-//           |                         |
-//           |  .--------------.       |
-//           '->| Try Next One |-------'
-//              '--------------'
-//
