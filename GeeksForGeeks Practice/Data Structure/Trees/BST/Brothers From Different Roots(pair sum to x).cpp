@@ -1,7 +1,8 @@
 class Solution
 {
 public:
-    // O(N)
+    // TC - O(m+n)
+    // SC - O(n)
     unordered_map<int, bool> m;
     void mapIt(Node *root)
     {
@@ -28,7 +29,8 @@ public:
         count(root1, x, res);
         return res;
     }
-    // O(Nh) // O(NlogN)
+    // TC - O(Nh) // O(NlogM)
+    // SC - O(1)
     // bool find(Node *root,int x)
     // {
     //     if(!root) return false;
