@@ -14,25 +14,69 @@ public:
     bool isPalindrome(ListNode *head)
     {
         // TC - o(n)
-        // SC - o(n)
-        vector<int> traversal;
-        while (head)
+        // SC - o(1)
+        // find the mid element
+        ListNode *mid = head;
+        ListNode *fast = head;
+        ListNode *last1 = head;
+        while (fast && fast->next)
         {
-            traversal.push_back(head->val);
-            head = head->next;
+            last1 = mid;
+            mid = mid->next;
+            fast = fast->next->next;
         }
 
-        int start = 0;
-        int end = traversal.size() - 1;
-        while (start < end)
+        // disconnect elements after mid in original array
+        last1->next = NULL;
+
+        // reverse the second half of the ll
+        ListNode *cur = mid;
+        ListNode *prev = NULL;
+        ListNode *nxt;
+
+        while (cur)
         {
-            if (traversal[start] != traversal[end])
+            nxt = cur->next;
+
+            cur->next = prev;
+
+            prev = cur;
+            cur = nxt;
+        }
+
+        ListNode *head2 = prev;
+
+        while (head && head2)
+        {
+            if (head->val != head2->val)
             {
                 return false;
             }
-            start++;
-            end--;
+            head = head->next;
+            head2 = head2->next;
         }
+
         return true;
+        // TC - o(n)
+        // SC - o(n)
+        // vector<int> traversal;
+        // while (head)
+        // {
+        //     traversal.push_back(head->val);
+        //     head = head->next;
+        // }
+
+        // int start = 0;
+        // int end = traversal.size() - 1;
+        // while (start < end)
+        // {
+        //     if (traversal[start] != traversal[end])
+        //     {
+        //         return false;
+        //     }
+        //     start++;
+        //     end--;
+        // }
+        // return true;
     }
 };
