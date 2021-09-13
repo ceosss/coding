@@ -8,7 +8,7 @@ public:
             return;
         }
         flatten(root->right);
-        flatter(root->left);
+        flatten(root->left);
         TreeNode *lc = root->left;
         TreeNode *rc = root->right;
         root->right = lc;
