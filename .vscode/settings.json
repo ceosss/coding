@@ -21,7 +21,9 @@
     "string_view": "cpp",
     "unordered_map": "cpp",
     "__locale": "cpp",
-    "__string": "cpp"
+    "__string": "cpp",
+    "__bit_reference": "cpp",
+    "filesystem": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
