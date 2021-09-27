@@ -23,7 +23,13 @@
     "__locale": "cpp",
     "__string": "cpp",
     "__bit_reference": "cpp",
-    "filesystem": "cpp"
+    "filesystem": "cpp",
+    "random": "cpp",
+    "regex": "cpp",
+    "span": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp",
+    "ranges": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
