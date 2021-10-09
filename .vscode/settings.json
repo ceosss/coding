@@ -29,7 +29,10 @@
     "span": "cpp",
     "unordered_set": "cpp",
     "valarray": "cpp",
-    "ranges": "cpp"
+    "ranges": "cpp",
+    "__node_handle": "cpp",
+    "forward_list": "cpp",
+    "any": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
